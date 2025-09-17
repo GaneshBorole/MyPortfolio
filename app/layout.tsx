@@ -9,12 +9,12 @@ import "./globals.css"
 export const metadata: Metadata = {
   title: "Ganesh Borole",
   description:
-    "Personal portfolio of Alex Johnson - Full-Stack Developer specializing in React, Next.js, and modern web technologies. View my projects and experience.",
+    "Personal portfolio of Ganesh Borole - Full-Stack Developer specializing in React, Next.js, and modern web technologies. View my projects and experience.",
   generator: "v0.app",
-  keywords: ["Full-Stack Developer", "React", "Next.js", "UI/UX Designer", "Web Development", "Portfolio"],
-  authors: [{ name: "Alex Johnson" }],
+  keywords: ["Full-Stack Developer", "React", "Next.js", "Web Development", "Portfolio"],
+  authors: [{ name: "Ganesh Borole" }],
   openGraph: {
-    title: "Alex Johnson - Full-Stack Developer",
+    title: "Ganesh Borole- Full-Stack Developer",
     description: "Personal portfolio showcasing web development projects and experience",
     type: "website",
   },
