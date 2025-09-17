@@ -3,10 +3,10 @@ import { Progress } from "@/components/ui/progress"
 export function SkillsSection() {
   const skills = [
     { name: "React/Next.js", level: 90},
-    { name: "TypeScript", level: 50 },
+    { name: "TypeScript", level: 70 },
     { name: "Node.js", level: 80 },
     { name: "Java", level: 90 },
-    { name: "Data Structure and Algorithm", level: 65 },
+    { name: "Data Structure and Algorithm", level: 70 },
     { name: "SQL/MySQL/MongoDB", level: 75 },
   ]
 
