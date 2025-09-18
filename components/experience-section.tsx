@@ -1,5 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Certificate } from "crypto";
+import { Button } from "@/components/ui/button";
 
 export function ExperienceSection() {
   const experiences = [
@@ -9,7 +11,8 @@ export function ExperienceSection() {
       period: "24-Dec-2024 to 9-March-2025",
       description:
         "A virtual internship under SAP and AICTE focused on integrating Machine Learning models within SAP environments using ABAP.in this intern Built basic ML models and learned how to integrate them into SAP workflows, enhancing business process automation and decision-making .",
-      technologies: ["ML", "DL", "Python"],
+      technologies: ["ML", "DL", "Python", "Pandas", "Numpy"],
+      certificate: "/Interns.jpg",
     },
   ];
 
@@ -47,7 +50,7 @@ export function ExperienceSection() {
                       <CardHeader>
                         <CardTitle className="text-xl">{exp.title}</CardTitle>
                         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
-                          <span className="font-semibold text-primary">
+                          <span className="font-semibold text-orange-500">
                             {exp.company}
                           </span>
                           <span className="text-sm text-muted-foreground">
@@ -60,13 +63,26 @@ export function ExperienceSection() {
                           {exp.description}
                         </p>
 
-                        <div className="flex flex-wrap gap-2">
+                        <div className="flex flex-wrap gap-2 mb-4">
                           {exp.technologies.map((tech) => (
                             <Badge key={tech} variant="outline">
                               {tech}
                             </Badge>
                           ))}
                         </div>
+
+                        {exp.certificate && (
+                          <a
+                            href={exp.certificate}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block bg-green"
+                          >
+                            <Button className="text-orange-500"variant="outline" size="sm">
+                              View Certificate
+                            </Button>
+                          </a>
+                        )}
                       </CardContent>
                     </Card>
                   </div>
