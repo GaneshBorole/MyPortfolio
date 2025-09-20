@@ -1,91 +1,106 @@
-import React from 'react'
+import React from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Github } from "lucide-react";
+import { Certificate } from "crypto";
 
 function AchieveSection() {
-    const projects = [
-      {
-      title: "Wonderlust Airbnb website",
+  const achieves = [
+    {
+      title: "1st rank in Academics - Second Year",
       description:
-        "The Airbnb Wanderlust project is a web design initiative aimed at creating an interactive, visually stunning platform that inspires users to explore unique destinations and accommodations around the world.",
-      image: "/Airbnb.png",
-      technologies: ["Express.js", "Node.js", "EJS", "MongoDB"],
-      liveUrl: "https://wonderlust-jxd6.onrender.com/listings",
-      githubUrl: "https://github.com/GaneshBorole/Wonderlust-.git",
+        "Achieved First Rank in the 2nd Year of Engineering, demonstrating consistent academic excellence, strong problem-solving skills, and dedication to learning.",
+      certificate: "/1st rank certificate.pdf",
+      bgColor: "bg-blue-50",
     },
-    
+    {
+      title: "#Sakshar Bharat Innovo Hackathon 2k25 -SSGMCE",
+      description:
+        "Participated in the Sakshar Bharat Innovo Hackathon 2025 hosted at SSGMCE. Collaborated with a team to ideate and develop innovative technology-driven solutions addressing real-world challenges.",
+      certificate: "/Hackathon SSGMCE.pdf",
+      bgColor: "bg-blue-50",
+    },
+    {
+      title: "CDAC AR VR Bootcamp",
+      description:
+        " Gained hands-on experience with immersive technologies, including AR/VR application development, 3D environment design, Unity/Unreal Engine fundamentals, and integration of interactive user experiences",
+      certificate: "/CDAC certificate.pdf",
+      bgColor: "bg-blue-50",
+    },
+    {
+      title: "Full Stack Web Development course completed",
+      description:
+        "Successfully completed the Sigma Batch Web Development course by Apna College, gaining hands-on experience in HTML, CSS, JavaScript, React.js, Node.js, Express.js, and MongoDB.",
+      certificate: "/certificate-sigma-4.0.pdf",
+      bgColor: "bg-blue-50",
+    },
+    {
+      title: "DSA in Java",
+      description:
+        "Successfully completed the Data Structures and Algorithms in Java course from Apna College (Sigma Batch). DSA concept  including arrays, linked lists, stacks, queues, trees, graphs, recursion, DP, and advanced problem-solving techniques.",
+      certificate: "/certificate-sigma-40-dsa.pdf",
+      bgColor: "bg-blue-50",
+    },
+    {
+      title: "SAP AICTE Intern",
+      description:
+        "A virtual internship under SAP and AICTE focused on integrating Machine Learning models within SAP environments using ABAP.",
+      certificate: "/Interns.jpg",
+      bgColor: "bg-blue-50",
+    },
   ];
   return (
-   <section id="achievements" className="py-20 bg-muted/30">
+    <section id="achievements" className="py-20 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-balance mb-4">
-            Achievements
+            Certificate & Achievements
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-pretty">
-          Key achievements showcasing my skills, commitment, and performance across academics, internships, and projects.
+            Key achievements showcasing my skills, commitment, and performance
+            across academics, internships, and projects.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+          {achieves.map((achieve, index) => (
             <Card
               key={index}
-              className="overflow-hidden hover:shadow-lg transition-shadow"
+              className={`overflow-hidden hover:shadow-lg transition-shadow rounded-2xl ${achieve.bgColor}`}
             >
-              <div className="aspect-video overflow-hidden">
-                <img
-                  src={project.image || "/placeholder.svg"}
-                  alt={project.title}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                />
-              </div>
               <CardHeader>
-                <CardTitle className="text-xl">{project.title}</CardTitle>
+                <CardTitle className="text-xl text-gray-500">
+                  {achieve.title}
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-pretty mb-4">
-                  {project.description}
+                  {achieve.description}
                 </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech) => (
-                    <Badge key={tech} variant="secondary">
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
-                <div className="flex gap-2">
+                {achieve.certificate && (
                   <a
-                    href={project.liveUrl}
+                    href={achieve.certificate}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1"
+                    className="inline-block bg-green"
                   >
-                    <Button size="sm" className="w-full">
-                      <ExternalLink className="h-4 w-4 mr-2" />
-                      Live Demo
+                    <Button
+                      className="text-orange-500"
+                      variant="outline"
+                      size="sm"
+                    >
+                      View Certificate
                     </Button>
                   </a>
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Button size="sm" variant="outline">
-                      <Github className="h-4 w-4" />
-                      <span className="sr-only">View on GitHub</span>
-                    </Button>
-                  </a>
-                </div>
+                )}
               </CardContent>
             </Card>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default AchieveSection
+export default AchieveSection;
