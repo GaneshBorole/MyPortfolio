@@ -43,11 +43,11 @@ export function HeroSection() {
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 ">
           <Button
             onClick={scrollToProjects}
             size="lg"
-            className="font-semibold"
+            className="font-semibold bg-orange-500 hover:bg-orange-600"
           >
             View My Work
             <ArrowDown className="ml-2 h-4 w-4" />
@@ -56,7 +56,7 @@ export function HeroSection() {
             asChild
             variant="outline"
             size="lg"
-            className="font-semibold bg-transparent"
+            className="font-semibold bg-transparent "
           >
             <a href="/Resume_Ganesh.pdf" download>
               Download Resume

@@ -10,8 +10,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin, Phone } from "lucide-react";
 import emailjs from "@emailjs/browser";
 
-
-
 export function ContactSection() {
   const [formData, setFormData] = useState({
     name: "",
@@ -19,34 +17,33 @@ export function ContactSection() {
     message: "",
   });
 
- const handleSubmit = (e: React.FormEvent) => {
-  e.preventDefault();
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
 
-  emailjs
-    .send(
-      "service_zc74rat",       // ✅ Your Service ID
-      "template_ga7luui",      // ✅ Your Template ID
-      {
-        name: formData.name,   
-        email: formData.email, 
-        message: formData.message, 
-      },
-      "nfhuhjupN_JubjVjR"      // ✅ Your Public Key
-    )
-    .then(
-      (result) => {
-        console.log("✅ Email sent:", result.text);
-        alert("Message sent successfully!");
-      },
-      (error) => {
-        console.error("❌ Email error:", error.text);
-        alert("Failed to send message.");
-      }
-    );
+    emailjs
+      .send(
+        "service_zc74rat", // ✅ Your Service ID
+        "template_ga7luui", // ✅ Your Template ID
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        },
+        "nfhuhjupN_JubjVjR" // ✅ Your Public Key
+      )
+      .then(
+        (result) => {
+          console.log("✅ Email sent:", result.text);
+          alert("Message sent successfully!");
+        },
+        (error) => {
+          console.error("❌ Email error:", error.text);
+          alert("Failed to send message.");
+        }
+      );
 
-  setFormData({ name: "", email: "", message: "" });
-};
-
+    setFormData({ name: "", email: "", message: "" });
+  };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -100,7 +97,7 @@ export function ContactSection() {
             </div>
           </div>
 
-          <Card>
+          <Card className="bg-muted">
             <CardHeader>
               <CardTitle>Send a Message</CardTitle>
             </CardHeader>
@@ -135,7 +132,10 @@ export function ContactSection() {
                     required
                   />
                 </div>
-                <Button type="submit" className="w-full">
+                <Button
+                  type="submit"
+                  className="w-full bg-orange-500 hover:bg-orange-600 text-white"
+                >
                   Send Message
                 </Button>
               </form>

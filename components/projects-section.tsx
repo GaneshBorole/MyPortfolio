@@ -107,10 +107,10 @@ export function ProjectsSection() {
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1"
+                    className="flex-1 "
                   >
                     <Button size="sm" className="w-full">
-                      <ExternalLink className="h-4 w-4 mr-2" />
+                      <ExternalLink className="h-4 w-4 mr-2 " />
                       Live Demo
                     </Button>
                   </a>

@@ -29,7 +29,7 @@ function AchieveSection() {
       bgColor: "bg-blue-50",
     },
     {
-      title: "Full Stack Web Development course completed",
+      title: "Full Stack Web Development ",
       description:
         "Successfully completed the Sigma Batch Web Development course by Apna College, gaining hands-on experience in HTML, CSS, JavaScript, React.js, Node.js, Express.js, and MongoDB.",
       certificate: "/certificate-sigma-4.0.pdf",
