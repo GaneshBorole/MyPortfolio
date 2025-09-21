@@ -1,43 +1,72 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Mail, MapPin, Phone } from "lucide-react"
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Mail, MapPin, Phone } from "lucide-react";
+import emailjs from "@emailjs/browser";
+
+
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
-  })
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle form submission here
-    console.log("Form submitted:", formData)
-    // Reset form
-    setFormData({ name: "", email: "", message: "" })
-  }
+ const handleSubmit = (e: React.FormEvent) => {
+  e.preventDefault();
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  emailjs
+    .send(
+      "service_zc74rat",       // ✅ Your Service ID
+      "template_ga7luui",      // ✅ Your Template ID
+      {
+        name: formData.name,   
+        email: formData.email, 
+        message: formData.message, 
+      },
+      "nfhuhjupN_JubjVjR"      // ✅ Your Public Key
+    )
+    .then(
+      (result) => {
+        console.log("✅ Email sent:", result.text);
+        alert("Message sent successfully!");
+      },
+      (error) => {
+        console.error("❌ Email error:", error.text);
+        alert("Failed to send message.");
+      }
+    );
+
+  setFormData({ name: "", email: "", message: "" });
+};
+
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
-    }))
-  }
+    }));
+  };
 
   return (
     <section id="contact" className="py-20 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-balance mb-4">Get In Touch</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-balance mb-4">
+            Get In Touch With Me
+          </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-pretty">
-            Have a project in mind or want to collaborate? I'd love to hear from you.
+            Have a project in mind or want to collaborate? I'd love to hear from
+            you.
           </p>
         </div>
 
@@ -45,14 +74,20 @@ export function ContactSection() {
           <div>
             <h3 className="text-2xl font-semibold mb-6">Let's Connect</h3>
             <p className="text-muted-foreground text-pretty mb-8 leading-relaxed">
-              I'm always interested in new opportunities and exciting projects. Whether you have a question or just want
-              to say hi, feel free to reach out!
+              I'm always interested in new opportunities and exciting projects.
+              Whether you have a question or just want to say hi, feel free to
+              reach out!
             </p>
 
             <div className="space-y-4">
               <div className="flex items-center gap-4">
                 <Mail className="h-5 w-5 text-primary" />
-                <span>ganeshborole73@gmail.com</span>
+                <a
+                  href="mailto:ganeshborole73@gmail.com"
+                  className="text-blue-600 hover:underline"
+                >
+                  ganeshborole73@gmail.com
+                </a>
               </div>
               <div className="flex items-center gap-4">
                 <Phone className="h-5 w-5 text-primary" />
@@ -72,7 +107,13 @@ export function ContactSection() {
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <Input name="name" placeholder="Your Name" value={formData.name} onChange={handleChange} required />
+                  <Input
+                    name="name"
+                    placeholder="Your Name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                  />
                 </div>
                 <div>
                   <Input
@@ -103,5 +144,5 @@ export function ContactSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
